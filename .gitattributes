@@ -1,0 +1,11 @@
+# Windows scripts must keep CRLF line endings, whatever the contributor's git settings.
+*.ps1 text eol=crlf
+*.cmd text eol=crlf
+*.bat text eol=crlf
+
+# Binary assets
+*.ico binary
+*.zip binary
+
+# Everything else: normalise automatically.
+* text=auto
