@@ -1,0 +1,56 @@
+name: Launcher request
+description: Ask for PATCHD to support another game launcher.
+labels: [launcher-request]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Supporting a launcher needs someone who has it installed to help test, because the maintainer may not use it.
+        Want to add it yourself? See **CONTRIBUTING.md → Adding a launcher**.
+
+        Please replace your Windows username, PC name and any private paths with placeholders such as `<user>`.
+  - type: input
+    id: launcher
+    attributes:
+      label: Launcher
+      placeholder: e.g. Rockstar Games Launcher
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Official website
+  - type: dropdown
+    id: count
+    attributes:
+      label: How many games do you have installed with it?
+      options:
+        - None right now
+        - "1"
+        - 2 or more
+    validations:
+      required: true
+  - type: textarea
+    id: where
+    attributes:
+      label: Where does it keep track of installed games? (if you know)
+      description: |
+        For example registry keys, a config or JSON file, or a folder of manifests. Helpful commands:
+        `Get-ChildItem "HKLM:\SOFTWARE\WOW6432Node\<Publisher>" -Recurse`
+        `Get-ChildItem "$env:ProgramData\<Launcher>" -Recurse -Include *.json,*.yaml,*.xml`
+      render: text
+  - type: textarea
+    id: signer
+    attributes:
+      label: Launcher signature (optional)
+      description: |
+        Output of `(Get-AuthenticodeSignature "<path to the launcher exe>").SignerCertificate.Subject`
+      render: text
+  - type: checkboxes
+    id: help
+    attributes:
+      label: Helping
+      options:
+        - label: I can test a development version on my PC.
+        - label: I've removed my username, PC name and any personal paths from everything above.
+          required: true
