@@ -1,0 +1,72 @@
+name: Bug report
+description: Something in PATCHD doesn't work as described.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. **Security problems belong in a private report, not here** (see SECURITY.md).
+
+        Before pasting anything, please replace your Windows username, PC name and any paths or game names you'd rather keep private with placeholders such as `<user>`.
+  - type: input
+    id: version
+    attributes:
+      label: PATCHD version
+      description: Shown in the yellow badge next to the title, e.g. v1.0.0.
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Windows version
+      description: e.g. Windows 11 24H2. Run `winver` if unsure.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Install / uninstall
+        - Game detection
+        - Cover art or icons
+        - Launch / open folder / open launcher
+        - Steam auto-update setting
+        - Update window
+        - Nightly schedule
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. ...
+        2. ...
+  - type: textarea
+    id: listonly
+    attributes:
+      label: "-ListOnly output (for detection problems)"
+      description: |
+        Run `powershell -NoProfile -ExecutionPolicy RemoteSigned -File "C:\Program Files\PATCHD\PATCHD.ps1" -ListOnly` and paste the relevant lines, with private details replaced.
+      render: text
+  - type: textarea
+    id: log
+    attributes:
+      label: Relevant log lines
+      description: From the LOG panel, or `%LOCALAPPDATA%\PATCHD\update.log`, with private details replaced.
+      render: text
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy
+      options:
+        - label: I've removed my username, PC name and any personal paths or details from everything above.
+          required: true
