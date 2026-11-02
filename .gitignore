@@ -1,0 +1,38 @@
+# PATCHD runtime data (normally lives in %LOCALAPPDATA%, never commit it)
+settings.json
+*.log
+*.log.old
+steam-backup/
+
+# Code-signing material: never commit certificates or keys
+*.pfx
+*.p12
+*.cer
+*.crt
+*.key
+*.pvk
+*.snk
+
+# Release builds (attach to GitHub releases, don't commit)
+dist/
+
+# Personal test output and scratch files
+*.bak
+*.old
+*.tmp
+scratch/
+test-output/
+
+# Windows
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+*.lnk
+*:Zone.Identifier
+*Zone.Identifier
+
+# Editors
+.vscode/
+.idea/
+*.swp
